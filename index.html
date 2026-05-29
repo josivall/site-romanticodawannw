@@ -3,15 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Você me faz bem</title>
+<title>Você me faz bem ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
-font-family:Arial, sans-serif;
-background:linear-gradient(180deg,#2b0f1f,#5c1f3d,#ffd1dc);
+font-family:'Poppins',sans-serif;
+background:linear-gradient(180deg,#1b0712,#3d1029,#7b274d,#ffd1dc);
 color:white;
+overflow-x:hidden;
+}
+
+.coracoes{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:1;
+overflow:hidden;
+}
+
+.coracoes span{
+position:absolute;
+bottom:-50px;
+color:#ffb6c8;
+font-size:22px;
+animation:subir 9s linear infinite;
+opacity:.7;
+}
+
+.coracoes span:nth-child(1){left:8%;animation-delay:0s}
+.coracoes span:nth-child(2){left:20%;animation-delay:2s}
+.coracoes span:nth-child(3){left:35%;animation-delay:4s}
+.coracoes span:nth-child(4){left:50%;animation-delay:1s}
+.coracoes span:nth-child(5){left:65%;animation-delay:3s}
+.coracoes span:nth-child(6){left:80%;animation-delay:5s}
+.coracoes span:nth-child(7){left:92%;animation-delay:2.5s}
+
+@keyframes subir{
+0%{transform:translateY(0) scale(.8);opacity:0}
+20%{opacity:.8}
+100%{transform:translateY(-110vh) scale(1.4);opacity:0}
 }
 
 .hero{
@@ -21,74 +63,124 @@ align-items:center;
 justify-content:center;
 text-align:center;
 padding:25px;
-background:linear-gradient(rgba(0,0,0,.45),rgba(92,31,61,.75)),
-url("/mnt/data/6fb50c14-cb36-4197-9ada-0d6d96289e74.jpeg");
+position:relative;
+background:
+linear-gradient(rgba(20,0,15,.45),rgba(45,0,25,.75)),
+url("foto1.jpg.jpeg");
 background-size:cover;
 background-position:center;
 }
 
-.hero div{
-max-width:850px;
-background:rgba(255,255,255,.12);
-padding:40px;
-border-radius:30px;
-backdrop-filter:blur(8px);
+.hero::after{
+content:"";
+position:absolute;
+bottom:-1px;
+left:0;
+width:100%;
+height:120px;
+background:linear-gradient(transparent,#1b0712);
 }
 
-h1{
-font-size:55px;
+.hero-content{
+position:relative;
+z-index:2;
+max-width:900px;
+background:rgba(255,255,255,.13);
+padding:45px;
+border-radius:35px;
+backdrop-filter:blur(10px);
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+border:1px solid rgba(255,255,255,.25);
+}
+
+.hero h1{
+font-family:'Great Vibes',cursive;
+font-size:85px;
 margin-bottom:20px;
+color:#ffe4ec;
 }
 
-p{
-font-size:19px;
-line-height:1.8;
+.hero p{
+font-size:21px;
+line-height:1.9;
+color:#fff4f7;
 }
 
 section{
-padding:80px 8%;
+padding:90px 8%;
+position:relative;
+z-index:2;
 }
 
 .titulo{
+font-family:'Great Vibes',cursive;
+font-size:65px;
 text-align:center;
-font-size:42px;
-margin-bottom:45px;
+margin-bottom:55px;
 color:#ffe4ec;
+}
+
+.intro{
+max-width:900px;
+margin:auto;
+text-align:center;
+font-size:21px;
+line-height:2;
+background:rgba(255,255,255,.12);
+padding:35px;
+border-radius:30px;
+box-shadow:0 15px 35px rgba(0,0,0,.2);
 }
 
 .galeria{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
 gap:30px;
 }
 
 .card{
-background:#fff;
+background:#fff7fa;
 color:#5c1f3d;
-border-radius:25px;
+border-radius:28px;
 overflow:hidden;
-box-shadow:0 15px 35px rgba(0,0,0,.25);
+box-shadow:0 18px 40px rgba(0,0,0,.28);
 transition:.4s;
 }
 
 .card:hover{
-transform:translateY(-8px);
+transform:translateY(-10px) scale(1.02);
 }
 
 .card img{
 width:100%;
-height:360px;
+height:380px;
 object-fit:cover;
+display:block;
 }
 
-.card div{
-padding:25px;
+.card.grande{
+grid-column:span 2;
+}
+
+.card.grande img{
+height:430px;
+}
+
+.texto{
+padding:28px;
 text-align:center;
 }
 
-.card h2{
-color:#c73670;
+.texto h2{
+color:#c2185b;
+font-size:27px;
 margin-bottom:12px;
+}
+
+.texto p{
+font-size:17px;
+line-height:1.8;
+color:#6b2d47;
 }
 
 .promessas{
@@ -99,108 +191,235 @@ gap:25px;
 
 .promessa{
 background:rgba(255,255,255,.15);
-padding:30px;
+padding:32px;
 border-radius:25px;
 text-align:center;
+box-shadow:0 15px 35px rgba(0,0,0,.22);
+border:1px solid rgba(255,255,255,.25);
+transition:.3s;
+}
+
+.promessa:hover{
+transform:translateY(-8px);
+background:rgba(255,255,255,.22);
+}
+
+.promessa h2{
+font-size:23px;
+margin-bottom:15px;
+color:#ffd1dc;
+}
+
+.promessa p{
+line-height:1.8;
+color:#fff1f5;
 }
 
 .final{
-background:#2b0f1f;
+min-height:80vh;
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
 padding:90px 25px;
+background:
+linear-gradient(rgba(20,0,15,.65),rgba(20,0,15,.8)),
+url("foto8.jpg.jpeg");
+background-size:cover;
+background-position:center;
+position:relative;
+z-index:2;
+}
+
+.final div{
+max-width:850px;
+background:rgba(255,255,255,.14);
+padding:45px;
+border-radius:35px;
+backdrop-filter:blur(10px);
+box-shadow:0 20px 60px rgba(0,0,0,.35);
 }
 
 .final h2{
-font-size:45px;
+font-family:'Great Vibes',cursive;
+font-size:65px;
 margin-bottom:25px;
-color:#ffb6c8;
+color:#ffe4ec;
 }
 
-.coracao{
-color:red;
+.final p{
+font-size:21px;
+line-height:2;
+color:#fff4f7;
+}
+
+.botao{
+display:inline-block;
+margin-top:30px;
+padding:15px 30px;
+background:#ff6f9f;
+color:white;
+border-radius:40px;
+text-decoration:none;
+font-weight:700;
+box-shadow:0 10px 25px rgba(255,111,159,.4);
+transition:.3s;
+}
+
+.botao:hover{
+transform:scale(1.05);
+background:#ff4f8a;
+}
+
+@media(max-width:700px){
+.hero h1{
+font-size:58px;
+}
+
+.hero-content{
+padding:30px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.titulo{
+font-size:50px;
+}
+
+.card.grande{
+grid-column:span 1;
+}
+
+.card img,
+.card.grande img{
+height:340px;
+}
+
+.final h2{
+font-size:50px;
+}
 }
 </style>
 </head>
 
 <body>
 
+<div class="coracoes">
+<span>❤</span>
+<span>♡</span>
+<span>❤</span>
+<span>♡</span>
+<span>❤</span>
+<span>♡</span>
+<span>❤</span>
+</div>
+
 <div class="hero">
-<div>
+<div class="hero-content">
 <h1>Você me faz bem</h1>
 <p>
-Fazia muito tempo que eu não me sentia tão leve ao lado de alguém.
-Seu jeito, seu sorriso, seus olhos e sua presença me fazem querer estar cada vez mais perto.
-Você tem algo que acalma meu coração e deixa meus dias mais bonitos.
+Não foi de uma vez. Foi aos poucos. Uma conversa aqui, um sorriso ali,
+um momento simples que ficou guardado em mim.
+E quando eu percebi, você já tinha se tornado uma das partes mais bonitas dos meus dias.
 </p>
+<a href="#galeria" class="botao">Ver nossos momentos</a>
 </div>
 </div>
 
 <section>
-<h1 class="titulo">Cada detalhe seu me encanta</h1>
+<h1 class="titulo">O que eu sinto por você</h1>
+
+<p class="intro">
+Fazia muito tempo que eu não me sentia tão bem ao lado de alguém.
+Eu gosto do seu jeito, do seu sorriso, do seu olhar e da paz que você me transmite.
+Você chegou de um jeito leve, mas acabou se tornando muito especial pra mim.
+</p>
+</section>
+
+<section id="galeria">
+<h1 class="titulo">Você em cada detalhe</h1>
 
 <div class="galeria">
 
-<div class="card">
-<img src="/mnt/data/a051b89c-d761-4e55-9a5c-2bd20c5d3e10.jpeg">
-<div>
-<h2>Seu sorriso</h2>
-<p>Seu sorriso tem uma luz diferente. Quando você sorri, parece que tudo ao redor fica mais bonito.</p>
+<div class="card grande">
+<img src="foto2.jpg.jpeg">
+<div class="texto">
+<h2>Seu sorriso ilumina tudo</h2>
+<p>
+Seu sorriso tem uma luz diferente. Quando você sorri, parece que o mundo fica mais bonito.
+</p>
 </div>
 </div>
 
 <div class="card">
-<img src="/mnt/data/6fb50c14-cb36-4197-9ada-0d6d96289e74.jpeg">
-<div>
+<img src="foto1.jpg.jpeg">
+<div class="texto">
 <h2>Seu olhar</h2>
-<p>Tem algo no seu olhar que me traz paz. É uma calma que eu não consigo explicar, só sentir.</p>
+<p>
+Tem algo no seu olhar que me traz calma. É uma paz que eu não consigo explicar, só sentir.
+</p>
 </div>
 </div>
 
 <div class="card">
-<img src="/mnt/data/IMG_5313.jpeg">
-<div>
-<h2>Nossos momentos</h2>
-<p>Ao seu lado até os momentos simples viram lembranças que eu quero guardar com carinho.</p>
+<img src="foto3.jpg.jpeg">
+<div class="texto">
+<h2>Nossa conexão</h2>
+<p>
+Gosto do nosso jeito, das brincadeiras, dos momentos simples e da leveza que existe quando estou com você.
+</p>
 </div>
 </div>
 
 <div class="card">
-<img src="/mnt/data/IMG_5308.jpeg">
-<div>
+<img src="foto4.jpg.jpeg">
+<div class="texto">
+<h2>Momentos que ficam</h2>
+<p>
+Algumas fotos não são só fotos. São lembranças de momentos que eu quero guardar com carinho.
+</p>
+</div>
+</div>
+
+<div class="card">
+<img src="foto5.jpg.jpeg">
+<div class="texto">
 <h2>Seu carinho</h2>
-<p>Você me faz sentir algo diferente, algo leve, bonito e verdadeiro.</p>
+<p>
+Ao seu lado eu me sinto bem de um jeito que fazia tempo que eu não sentia.
+</p>
 </div>
 </div>
 
 <div class="card">
-<img src="/mnt/data/IMG_5309.jpeg">
-<div>
-<h2>Nosso jeito</h2>
-<p>Gosto da nossa conexão, das brincadeiras, dos sorrisos e até das nossas fotos bobas.</p>
+<img src="foto6.jpg.jpeg">
+<div class="texto">
+<h2>Nosso jeito bobo</h2>
+<p>
+Gosto quando a gente ri, brinca e esquece um pouco do mundo. Com você tudo fica mais leve.
+</p>
 </div>
 </div>
 
 <div class="card">
-<img src="/mnt/data/73F7AD3C-651E-40CB-9289-8489C9A974C5.jpeg">
-<div>
+<img src="foto7.jpg.jpeg">
+<div class="texto">
 <h2>Minha paz</h2>
-<p>Quando estou com você, eu me sinto bem de um jeito que fazia tempo que eu não sentia.</p>
+<p>
+Você me passa uma sensação boa, daquelas que fazem o coração descansar.
+</p>
 </div>
 </div>
 
-<div class="card">
-<img src="/mnt/data/52BB2F16-17A0-4337-8CBA-074BA97E01E8.jpeg">
-<div>
-<h2>Seu jeito único</h2>
-<p>Você consegue ser linda, divertida e especial sem nem tentar. Isso me encanta demais.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="/mnt/data/06DBB08E-033A-4F9E-8CB1-B5C43F4C5C9B.jpeg">
-<div>
+<div class="card grande">
+<img src="foto8.jpg.jpeg">
+<div class="texto">
 <h2>Meu lugar bom</h2>
-<p>Essa foto mostra o que eu mais gosto: a felicidade simples de estar perto de você.</p>
+<p>
+Estar perto de você tem sido uma das melhores sensações que eu vivi nos últimos tempos.
+</p>
 </div>
 </div>
 
@@ -208,40 +427,51 @@ Você tem algo que acalma meu coração e deixa meus dias mais bonitos.
 </section>
 
 <section>
-<h1 class="titulo">Promessas que eu quero cumprir</h1>
+<h1 class="titulo">Minhas promessas</h1>
 
 <div class="promessas">
 
 <div class="promessa">
-<h2>Te conquistar todos os dias</h2>
-<p>Não quero parar de demonstrar o quanto você é especial pra mim.</p>
+<h2>❤ Te conquistar todos os dias</h2>
+<p>
+Não quero demonstrar só uma vez. Quero fazer você se sentir especial todos os dias.
+</p>
 </div>
 
 <div class="promessa">
-<h2>Melhorar sempre</h2>
-<p>Eu sei que não sou perfeito e tenho falhas, mas vou me esforçar todos os dias.</p>
+<h2>🌹 Melhorar sempre</h2>
+<p>
+Eu sei que não sou perfeito e tenho minhas falhas, mas vou me esforçar para ser melhor.
+</p>
 </div>
 
 <div class="promessa">
-<h2>Cuidar de você</h2>
-<p>Quero estar presente nos dias bons, nos difíceis e nos momentos simples.</p>
+<h2>🤍 Estar presente</h2>
+<p>
+Quero estar com você nos dias bons, nos difíceis e nos momentos simples também.
+</p>
 </div>
 
 <div class="promessa">
-<h2>Valorizar você</h2>
-<p>Porque pessoas como você merecem carinho, respeito e cuidado de verdade.</p>
+<h2>✨ Valorizar você</h2>
+<p>
+Porque você é rara, linda, especial e merece cuidado, carinho e respeito de verdade.
+</p>
 </div>
 
 </div>
 </section>
 
 <div class="final">
-<h2>Você é uma das partes mais bonitas dos meus dias <span class="coracao">❤</span></h2>
+<div>
+<h2>Você é especial pra mim ❤</h2>
 <p>
-Talvez eu não seja perfeito, talvez eu erre às vezes, mas uma coisa eu prometo:
-vou me esforçar para te conquistar todos os dias, cuidar de você e fazer você se sentir especial.
+Talvez eu não seja perfeito. Talvez eu erre às vezes.
+Mas uma coisa eu prometo: vou me esforçar para continuar te conquistando,
+cuidando de você e fazendo você se sentir importante.
 Porque estar ao seu lado tem feito muito bem pra mim.
 </p>
+</div>
 </div>
 
 </body>
